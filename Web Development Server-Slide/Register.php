@@ -15,7 +15,7 @@
     <div class="container">
       <div class="top-right">
         <a href="Login.html">Login</a>
-        <a href="">Register</a>
+        <a href="Register.php">Register</a>
       </div>
     </div>
   </header>
