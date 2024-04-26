@@ -1,3 +1,67 @@
+<?php
+
+class UserHandler {
+    private $connection;
+    
+    public function __construct($connection) {
+        $this->connection = $connection;
+    }
+    
+    public function addUser($username, $password, $email) {
+        try {
+            $new_user = array(
+                "username" => $this->escape($username),
+                "password" => $this->escape($password),
+                "email" => $this->escape($email)
+            );
+            
+            $sql = sprintf(
+                "INSERT INTO %s (%s) VALUES (%s)",
+                "register",
+                implode(", ", array_keys($new_user)),
+                ":" . implode(", :", array_keys($new_user))
+            );
+
+            $statement = $this->connection->prepare($sql);
+            $statement->execute($new_user);
+            
+            return true; // Success
+        } catch(PDOException $error) {
+            echo $sql . "<br>" . $error->getMessage();
+            return false; // Error
+        }
+    }
+    
+    private function escape($value) {
+        // Implement your escaping mechanism here
+        return $value;
+    }
+}
+
+// Usage:
+require "common.php";
+require_once 'src/DBconnect.php';
+
+$connection = new PDO($dsn, $username, $password, $options);
+$userHandler = new UserHandler($connection);
+
+// Handle form submission
+if (isset($_POST['username'], $_POST['password'], $_POST['email'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $email = $_POST['email'];
+
+    // Add user to the database
+    if ($userHandler->addUser($username, $password, $email)) {
+        // Registration successful, redirect to login page
+        header("Location: Login.php");
+        exit();
+    } else {
+        echo "Registration failed. Please try again.";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,16 +69,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register</title>
   <link rel="stylesheet" href="css/Register.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
-<script src="js/form.js"></script>
-
 </head>
 <body>
   <header>
     <div class="container">
       <div class="top-right">
-        <a href="Login.html">Login</a>
+        <a href="Login.php">Login</a>
         <a href="Register.php">Register</a>
       </div>
     </div>
@@ -22,7 +82,7 @@
   
   <div class="container">
     <h2>Register</h2>
-    <form action="register_process.php" method="POST">
+    <form action="" method="POST">
       <label for="username">Username:</label><br>
       <input type="text" id="username" name="username" required><br>
       
@@ -35,18 +95,5 @@
       <input type="submit" value="Register">
     </form>
   </div>
-</body>
-</html>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const tabs = document.querySelectorAll('.tab-content');
-      tabs.forEach(tab => {
-        tab.style.display = 'none';
-      });
-      const hash = window.location.hash.substring(1);
-      const activeTab = document.getElementById(hash) || document.getElementById('login');
-      activeTab.style.display = 'block';
-    });
-  </script>
 </body>
 </html>

@@ -1,3 +1,7 @@
+<?php 
+require_once 'style/header.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,22 +11,28 @@
   <link rel="stylesheet" href="css/Register.css">
   <link rel="stylesheet" href="css/servicedetails.css">
 </head>
+
 <body>
   <header>
     <div class="container">
       <div class="top-right">
+        
       </div>
       <h1>Phone Repair Services</h1>
     </div>
   </header>
-  
+
+
+
   <div class="container">
+
     <h2>Select a Service</h2>
-    <form action="login_process.php" method="GET" onsubmit="submitForm(); return false;">
+    <form action="Pinfo.php" method="GET">
       <label for="service">Choose a service:</label><br>
-      <select id="service" name="service">
-          <option value=""></option> <!-- Option for no service -->
+      <select id="service" name="service" required>
+        <option value=""></option> <!-- Option for no service -->
         <?php
+          // Initial values for the services array
           $services = array(
             "Cracked Screen"=>"images/cract.jpg",
             "Battery Replace"=>"",
@@ -56,29 +66,16 @@
     </div>
   </div>
 
+
+
   <footer>
+<h2>Welcome, <?php echo $_SESSION['Username']; ?> </h2>
     <div class="container">
       <div class="logo">
         <img src="images/logo.png" width="80" height="80" alt="Logo">
+	<p>&copy; 2024 Your Company. All rights reserved.</p>
       </div>
-      <p>&copy; 2024 Your Company. All rights reserved.</p>
     </div>
   </footer>
-    
-  <script>
-    /**
-     * Function to submit the form based on the selected service.
-     */
-    function submitForm() {
-        var selectedService = document.getElementById("service").value;
-
-        if (selectedService === "") {
-            alert("Please select a service.");
-        } else {
-            var url = "http://localhost/Web_Development_Server-Slide/Web%20Development%20Server-Slide/login_process.php?service=" + encodeURIComponent(selectedService);
-            window.location.href = url;
-        }
-    }
-  </script>
 </body>
 </html>

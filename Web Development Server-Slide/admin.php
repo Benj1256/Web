@@ -13,7 +13,7 @@ class UserAuthenticator {
 
     public function authenticateUser($username, $password) {
         try {
-            $sql = "SELECT * FROM register WHERE username = :username AND password = :password";
+            $sql = "SELECT * FROM admin WHERE username = :username AND password = :password";
             $statement = $this->connection->prepare($sql);
             $statement->bindParam(':username', $username);
             $statement->bindParam(':password', $password);
@@ -43,7 +43,7 @@ if (isset($_POST['SUBMITS'])) {
         $_SESSION['Username'] = $username; //$user['username'];
        
         // Redirect to ServiceDetails.php only if authentication is successful
-        header("Location: ServiceDetails.php");
+        header("Location: admin\index.php");
         exit();
     } else {
         // If authentication fails, display error message
@@ -75,7 +75,7 @@ if (isset($_POST['SUBMITS'])) {
   </header>
   
   <div class="container">
-    <h2>Login</h2>
+    <h2>Admin Login</h2>
     <form action="" method="POST">
       <label for="username">Username:</label><br>
       <input type="text" id="username" name="username" required><br>
@@ -86,7 +86,7 @@ if (isset($_POST['SUBMITS'])) {
       <input type="submit" name="SUBMITS" value="Login">
 <br><br>
 
-<a href="Admin.php">Admin Login</a>
+<a href="Login.php">User Login</a>
     </form>
 
 

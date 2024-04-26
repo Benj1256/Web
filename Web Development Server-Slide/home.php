@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,9 +21,9 @@
 <header>
     <div class="container">
       <div class="top-right">
-        <a href="Login.html">Login</a>
-       <a href="Register.html">Register </a>
-      <a href="Service.html">Service</a>
+        <a href="Login.php">Login</a>
+       <a href="Register.php">Register </a>
+      <a href="Service.php">Service</a>
       </div>
     </div>
   </header>
