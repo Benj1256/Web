@@ -60,10 +60,10 @@ $problems = [
 ];
 
 $service = new Service($device, $problems);
-
-echo "<h2><br><br>Please provide details: <br><br></h2>"; 
 ?>
 
+<div class = "container">
+<h2>Please provide details: </h2>
 <form method="post" action="submit_service.php">
 
     <label for="service">Service</label>
@@ -92,6 +92,7 @@ echo "<h2><br><br>Please provide details: <br><br></h2>";
 
     <input type="submit" value="Submit">
 </form>
+</div>
 <br><br><br><br><br><br>
 <h1>Welcome, <?php echo isset($_SESSION['Username']) ? $_SESSION['Username'] : "Guest"; ?> </h1>
 

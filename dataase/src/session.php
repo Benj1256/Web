@@ -19,7 +19,7 @@ session_destroy();
 public function forgetSession() 
 { 
 $this->killSession(); 
-header("location:login.php");  /* Redirect to login page */ 
+header("location:home.php");  /* Redirect to login page */ 
 exit; 
 } 
 } 

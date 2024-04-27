@@ -5,7 +5,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phone Repair Store  </title>
+    <title>Phone Repair Store</title></div>
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -25,6 +25,7 @@
        <a href="Register.php">Register </a>
       <a href="Service.php">Service</a>
       <a href=car.php>Shopping Cart</a>
+	<a href=Logout.php>Logout</a>
       </div>
     </div>
   </header>

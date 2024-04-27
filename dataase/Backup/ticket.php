@@ -1,5 +1,4 @@
 <?php
-
 if (isset($_SERVER["REQUEST_METHOD"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
     // Form submission logic here
 } else {
@@ -9,8 +8,6 @@ if (isset($_SERVER["REQUEST_METHOD"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 session_start();
-
-require_once 'src/DBconnect.php';
 
 // Check if the function is not already defined
 if (!function_exists('generateTicketNumber')) {
@@ -26,8 +23,6 @@ if (!function_exists('generateTicketNumber')) {
     }
 }
 
-$connection = new PDO($dsn, $username, $password, $options);
-
 $ticketNumber = generateTicketNumber();
 
 date_default_timezone_set('Europe/Dublin');
@@ -37,26 +32,8 @@ $today = date('Y-m-d'); // Format: Year-Month-Day
 // Access the currentUser variable from the session
 $currentUser = isset($_SESSION['Username']) ? $_SESSION['Username'] : "Guest";
 
-
-try {
-    // Establish database connection
-    $connection = new PDO($dsn, $username, $password, $options);
-
-    // Prepare the SQL statement for insertion
-    $sql = "INSERT INTO ticket (uniqueNo, TDate) VALUES (:uniqueNo, :TDate)";
-    $statement = $connection->prepare($sql);
-
-    // Bind the parameters and execute the statement
-    $statement->bindParam(':uniqueNo', $ticketNumber);
-    $statement->bindParam(':TDate', $today);
-    $statement->execute();
-
-    echo "Ticket details successfully added to the database.<br>";
-} catch(PDOException $error) {
-    echo "Error: " . $error->getMessage();
-}
+// Output HTML content...
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

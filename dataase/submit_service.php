@@ -1,10 +1,16 @@
-<?php session_start();
+<?php
+
+session_start();
+
 
 class TicketHandler {
     private $currentUser;
+    private $connection;
 
-    public function __construct() {
+    public function __construct($connection) {
+        
         $this->currentUser = isset($_SESSION['Username']) ? $_SESSION['Username'] : "Guest";
+        $this->connection = $connection;
     }
 
     public function processForm() {
@@ -14,13 +20,22 @@ class TicketHandler {
                 $deviceModel = $_POST["device_model"];
                 $deviceOS = $_POST["device_os"];
 
-                echo "Current User: $this->currentUser<br>";
-                echo "Problem: $problem<br>";
-                echo "Device Model: $deviceModel<br>";
-                echo "Device OS: $deviceOS<br>";
+                try {
+                    // Prepare the SQL statement for insertion
+                    $sql = "INSERT INTO service (problem, device_model, device_os, user) VALUES (:problem, :device_model, :device_os, :user)";
+                    $statement = $this->connection->prepare($sql);
 
-                // Now you can insert this data into your database
-                // Make sure to handle database connections and SQL queries securely
+                    // Bind the parameters and execute the statement
+                    $statement->bindParam(':problem', $problem);
+                    $statement->bindParam(':device_model', $deviceModel);
+                    $statement->bindParam(':device_os', $deviceOS);
+                    $statement->bindParam(':user', $this->currentUser);
+                    $statement->execute();
+
+                    echo "Ticket details successfully added to the database.<br>";
+                } catch(PDOException $error) {
+                    echo "Error: " . $error->getMessage();
+                }
             } else {
                 echo "Error: Problem or device details are missing.";
             }
@@ -30,11 +45,15 @@ class TicketHandler {
     }
 }
 
-$ticketHandler = new TicketHandler();
+require_once 'src/DBconnect.php';
+$connection = new PDO($dsn, $username, $password, $options);
+
+$ticketHandler = new TicketHandler($connection);
 $ticketHandler->processForm();
 
 ?>
 
-<center><form method="post" action="ticket.php">
+<form method="post" action="ticket.php">
     <input type="submit" name="submit" value="Confirm">
-</form></center>
+</form>
+ 

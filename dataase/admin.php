@@ -65,14 +65,27 @@ if (isset($_POST['SUBMITS'])) {
   <link rel="stylesheet" href="css/Register.css">
 </head>
 <body>
-  <header>
-    <div class="container">
+
+<header class="header">
+
+<center><ul>
+   
+    
+	<div class="container">
       <div class="top-right">
         <a href="Login.php">Login</a>
         <a href="Register.php">Register</a>
       </div>
     </div>
-  </header>
+  
+
+</ul></center>
+
+
+</header>
+  
+    
+ 
   
   <div class="container">
     <h2>Admin Login</h2>

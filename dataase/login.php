@@ -11,7 +11,11 @@
 
 </ul></center>
 
+
 </header>
+
+<div class = "container">
+
 <center><h2>Login</h2>
 
 <form method="post">
@@ -24,6 +28,8 @@
 <a href="admin.php">Admin Login</a>
 
 </form></center>
+
+</div>
 
 <?php
 session_start(); // Start the session
