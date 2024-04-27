@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,6 +8,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/back.css">
   </head>
   <body>
 <style>
@@ -18,29 +17,26 @@
     height: 500px; /* Adjust the height as needed */
   }
 </style>
-<header>
+ <header>
     <div class="container">
       <div class="top-right">
-        <a href="Login.php">Login</a>
-       <a href="Register.php">Register </a>
       <a href="Service.php">Service</a>
-      <a href=car.php>Shopping Cart</a>
-      </div>
-    </div>
-  </header>
-
- <header><h1> Phone Repair </h1></header>
+      <a href="delete.php">Delete</a>
+      <a href="Ticket.php">Ticket</a>
+      <a href="read.php">Find User</a> -
+</header>
+<header><h1> Phone Repair </h1></header>
 <div class="spacer"></div>
 <div class="container"> 
-  <div id="myTrapstar" class="carousel slide" data-ride="carousel">
+  <div id="my" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
-      <li data-target="#myTrapstar" data-slide-to="0" class="active"></li>
-      <li data-target="#myTrapstar" data-slide-to="1"></li>
-      <li data-target="#myTrapstar" data-slide-to="2"></li>
-      <li data-target="#myTrapstar" data-slide-to="3"></li>
-      <li data-target="#myTrapstar" data-slide-to="4"></li>
-      <li data-target="#myTrapstar" data-slide-to="5"></li>
+      <li data-target="#my" data-slide-to="0" class="active"></li>
+      <li data-target="#my" data-slide-to="1"></li>
+      <li data-target="#my" data-slide-to="2"></li>
+      <li data-target="#my" data-slide-to="3"></li>
+      <li data-target="#my" data-slide-to="4"></li>
+      <li data-target="#my" data-slide-to="5"></li>
     </ol>
 
     <!-- Wrapper for slides -->
@@ -80,17 +76,17 @@
     </div>
 
     <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myTrapstar" data-slide="prev">
+    <a class="left carousel-control" href="#my" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left"></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a class="right carousel-control" href="#myTrapstar" data-slide="next">
+    <a class="right carousel-control" href="#my" data-slide="next">
       <span class="glyphicon glyphicon-chevron-right"></span>
       <span class="sr-only">Next</span>
     </a>
   </div>
 </div>
-<h2> Categories of Phones </h2>
+<center><h2> Categories of Phones </h2><center>
 <p>We specialize in fixing all types of phones, including iPhones, Androids, Galaxys, and Pixels. Our expert technicians are equipped to handle a wide range of issues, from cracked screens to software glitches, ensuring your device is restored to optimal condition quickly and efficiently.Trust us to provide reliable and affordable solutions to get your phone back up and running smoothly. </p></center>
 <img src="images/iphones.avif" width ="360" height = "200" alt="Iphone ">
 <img src="images/androids.webp" width ="360" height = "200"		alt="androids ">
@@ -107,3 +103,5 @@
   </footer>
   </body>
 </html>
+ 
+

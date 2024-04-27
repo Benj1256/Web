@@ -2,10 +2,10 @@
 /**
  * Delete a user
  */
-require "common.php";
+require "../common.php";
 if (isset($_GET["id"])) {
  try {
- require_once 'src/DBconnect.php'; 
+ require_once '../src/DBconnect.php'; 
  $id = $_GET["id"];
  $sql = "DELETE FROM users WHERE id = :id";
  $statement = $connection->prepare($sql);
@@ -18,7 +18,7 @@ if (isset($_GET["id"])) {
  } 
 } 
 try {
- require_once 'src/DBconnect.php'; 
+ require_once '../src/DBconnect.php'; 
  $sql = "SELECT * FROM users";
  $statement = $connection->prepare($sql);
  $statement->execute();
@@ -39,7 +39,6 @@ try {
  <th>Email Address</th>
  <th>Age</th>
  <th>Location</th>
- <th>Date</th>
  <th>Delete</th>
  </tr>
  </thead>
@@ -58,6 +57,5 @@ try {
  <?php endforeach; ?>
  </tbody>
 </table>
-<a href="login.php">Back to home</a>
-<link rel="stylesheet" href="css/Register.css">
+<a href="index.php">Back to home</a>
 <?php require "templates/footer.php"; ?>

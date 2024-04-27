@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
  //Retrieve the submitted form data from submit_service.php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
@@ -23,7 +25,7 @@ function generateTicketNumber($length = 8) {
 $ticketNumber = generateTicketNumber();
 
 ?>
-<link rel="stylesheet" href="css/Register.css">
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,26 +45,33 @@ date_default_timezone_set('Europe/Dublin');
 $today = date('l, F j, Y'); // Format: Day, Month Day, Year
 
 // Print today's date
-echo "Start Date: $today";
+echo "<b>Start Date:</b> $today";
 ?>
     
 
     <p><strong>Current User:</strong>
         
         <?php
-// Start or resume the session
-session_start();
 
 // Access the currentUser variable from the session
-$currentUser = isset($_SESSION['username']) ? $_SESSION['username'] : "Guest";
+$currentUser = isset($_SESSION['Username']) ? $_SESSION['Username'] : "Guest";
 
 // Use the currentUser variable
-echo "Current User: $currentUser";
+echo " $currentUser";
 ?>
+
+
     </p>
     
     <p><strong>Ticket Number:</strong> <?php echo $ticketNumber; ?></p>
-   <li><a href="login.php">Home</a></li>
+	
+	<a href="login.php">Home</a><br><br>
+
+	<form action="logout.php" method="post" name="Logout_Form" class="form-signin">
+                <button name="Submit" value="Logout" class="button" type="submit">Log out</button>
+            </form>
+
+   
 
 </body>
 </html>

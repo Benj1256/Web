@@ -1,11 +1,10 @@
-<?php
+<?php session_start();
 
 class TicketHandler {
     private $currentUser;
 
     public function __construct() {
-        session_start();
-        $this->currentUser = isset($_SESSION['username']) ? $_SESSION['username'] : "Guest";
+        $this->currentUser = isset($_SESSION['Username']) ? $_SESSION['Username'] : "Guest";
     }
 
     public function processForm() {
@@ -35,7 +34,7 @@ $ticketHandler = new TicketHandler();
 $ticketHandler->processForm();
 
 ?>
-<link rel="stylesheet" href="css/Register.css">
+
 <center><form method="post" action="ticket.php">
     <input type="submit" name="submit" value="Confirm">
 </form></center>
