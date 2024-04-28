@@ -1,4 +1,4 @@
-# Web
+# Contribution Statement
 Final Presentation (Project)
 
 Samuel Addo = Design of web pages (login page, index page, register page, home page)
