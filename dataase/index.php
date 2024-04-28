@@ -16,7 +16,7 @@
 <body>
     <div class="container">
         <h1>Phone Fixing Store</h1>
-        <a href="home.php" class="get-started-btn">Get Started</a>
+        <a href="login.php" class="get-started-btn">Get Started</a>
     </div>
 </body>
 </html>

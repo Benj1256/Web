@@ -148,8 +148,6 @@ if (isset($_POST['submit'])) {
     
 </form>
 
-<br><br><u><a href="home.php">Back to home</a></u>
-
 
     </div>
   </header>

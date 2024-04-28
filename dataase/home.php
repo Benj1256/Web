@@ -21,10 +21,9 @@
 <header>
     <div class="container">
       <div class="top-right">
-        <a href="Login.php">Login</a>
-       <a href="Register.php">Register </a>
       <a href="Service.php">Service</a>
       <a href=car.php>Shopping Cart</a>
+	<a href=Info.php>Information</a>
 	<a href=Logout.php>Logout</a>
       </div>
     </div>

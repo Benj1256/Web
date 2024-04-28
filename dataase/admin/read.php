@@ -6,7 +6,7 @@
  */
 if (isset($_POST['submit'])) {
  try {
- require "common.php";
+ require "../common.php";
  require_once '../src/DBconnect.php';
  $sql = "SELECT *
  FROM users
@@ -35,7 +35,6 @@ if (isset($_POST['submit'])) {
  <th>Email Address</th>
  <th>Age</th>
  <th>Location</th>
- <th>Date</th>
 </tr>
  </thead>
  <tbody>
@@ -47,7 +46,6 @@ if (isset($_POST['submit'])) {
 <td><?php echo escape($row["email"]); ?></td>
 <td><?php echo escape($row["age"]); ?></td>
 <td><?php echo escape($row["location"]); ?></td>
-<td><?php echo $row["date"]; ?> </td>
  </tr>
  <?php } ?>
  </tbody>

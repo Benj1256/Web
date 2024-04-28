@@ -13,6 +13,7 @@
     <h1>Administrator Privilege</h1>
     <ul>
         <li><a href="create.php"><strong>Create</strong></a> - Add a user</li>
+	<li><a href="read.php"><strong>Read</strong></a> - Locate user</li>
         <li><a href="update.php"><strong>Update</strong></a> - Edit a user</li>
         <li><a href="delete.php"><strong>Delete</strong></a> - Delete a user</li>
         <li><a href="Cadmin.php"><strong>Create Admin</strong></a> - Create an Admin User</li>

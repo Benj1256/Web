@@ -6,21 +6,26 @@
 <center><ul>
    
     <li><a href="register.php">Registration</a></li>
-	
-  
 
 </ul></center>
 
-
 </header>
+
+
+
+
 
 <div class = "container">
 
-<center><h2>Login</h2>
+<div class="top-right">
+
+<h2>Login</h2>
+
+</div>
 
 <form method="post">
     <label for="name">Name</label><br>
-    <input type="text" name="name" id="name" required><br><br>
+    <input type="text" name="name" id="name" required><br>
     <label for="email">Email</label><br>
     <input type="email" name="email" id="email" required><br><br>
     <input type="submit" name="submit" value="Login"><br><br>
@@ -30,6 +35,7 @@
 </form></center>
 
 </div>
+
 
 <?php
 session_start(); // Start the session
@@ -71,7 +77,7 @@ if (isset($_POST['submit'])) {
     if ($userAuthenticator->authenticateUser($name, $email)) {
         // Login successful, redirect to index page
 	$_SESSION['Username'] = $name; //$user['username'];
-        header("Location: Service.php");
+        header("Location: home.php");
         exit();
     } else {
         echo "Login failed. Please check your credentials.";
